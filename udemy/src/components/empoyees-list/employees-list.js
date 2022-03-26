@@ -2,13 +2,17 @@ import React from 'react';
 import {EmployeesListItem} from "../employees-list-item/employees-list-item";
 import './employees-list.css'
 
-export const EmployeesList = () => {
+export const EmployeesList = ({data}) => {
+
+    const elements = data.map(item => {
+        return (
+            <EmployeesListItem {...item}/>
+        )
+    })
     return (
         <div>
             <ul className="app-list list-group">
-                <EmployeesListItem/>
-                <EmployeesListItem/>
-                <EmployeesListItem/>
+                {elements}
             </ul>
         </div>
     );
